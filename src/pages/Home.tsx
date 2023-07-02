@@ -1,5 +1,7 @@
+import * as Styled from './styles';
+
 const Home = () => {
-  return <div>Welcome to the Home page.</div>;
+  return <Styled.Container></Styled.Container>;
 };
 
 export default Home;

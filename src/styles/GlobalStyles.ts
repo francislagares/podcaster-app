@@ -18,7 +18,7 @@ const GlobalStyles = createGlobalStyle`
 
 body {
   margin: 0;
-  padding: 2rem 4rem;
+  padding: 2rem 20rem;
   min-width: 320px;
 }
 

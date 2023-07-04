@@ -7,5 +7,4 @@ export const Container = styled.div.attrs({
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-between;
-  padding-top: 6rem;
 `;

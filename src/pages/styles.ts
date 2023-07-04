@@ -8,3 +8,13 @@ export const Container = styled.div.attrs({
   flex-wrap: wrap;
   justify-content: space-between;
 `;
+
+export const ResultsCount = styled.span.attrs({
+  className: 'results-count',
+})`
+  border-radius: 5px;
+  background-color: #747bff;
+  font-size: 0.9rem;
+  color: #fff;
+  padding: 1px 3px;
+`;

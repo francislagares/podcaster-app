@@ -22,7 +22,11 @@ const Home = () => {
 
   return (
     <Styled.Container>
-      <Search value={searchTerm} onChange={handleChange} />
+      <Search
+        count={podcasts.length}
+        value={searchTerm}
+        onChange={handleChange}
+      />
       {podcasts?.map((podcast: Podcast) => {
         const mappedPodcast = createPodcastAdapter(podcast);
 

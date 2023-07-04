@@ -30,3 +30,17 @@ export const Search = styled.input.attrs({
     outline: none;
   }
 `;
+
+export const ResultsCount = styled.span.attrs({
+  className: 'search-form__results-count',
+})`
+  border-radius: 5px;
+  background-color: #747bff;
+  color: #fff;
+  font-size: 0.9rem;
+  line-height: 1.5rem;
+  margin-right: 0.5rem;
+  padding: 0px 4px;
+  height: 1.5rem;
+  margin: auto 0.5rem;
+`;

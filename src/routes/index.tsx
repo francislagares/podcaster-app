@@ -1,8 +1,8 @@
 import { createBrowserRouter } from 'react-router-dom';
 
 import Header from '@/layouts/header';
-import Home from '@/pages/Home';
-import Podcast from '@/pages/Podcast';
+import Home from '@/pages/home';
+import Podcast from '@/pages/podcast';
 
 const router = createBrowserRouter([
   {

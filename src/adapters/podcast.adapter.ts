@@ -5,4 +5,5 @@ export const createPodcastAdapter = (podcast: any): Podcast => ({
   title: podcast['im:name'].label,
   author: podcast['im:artist'].label,
   image: podcast['im:image'][2].label,
+  description: podcast.summary.label,
 });

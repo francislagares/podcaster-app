@@ -9,7 +9,7 @@ const apiClient = new ApiService<Podcast>(
   '/us/rss/toppodcasts/limit=100/genre=1310/json',
 );
 
-const filterPodcasts = (searchTerm: string, data: any) => {
+const filterPodcasts = (searchTerm?: string, data?: any) => {
   const podcasts = data.feed.entry;
 
   if (!searchTerm) {
@@ -29,7 +29,7 @@ const filterPodcasts = (searchTerm: string, data: any) => {
   return filteredPodcasts;
 };
 
-const usePodcasts = (searchTerm: string) => {
+const usePodcasts = (searchTerm?: string) => {
   return useQuery({
     queryKey: ['podcasts'],
     queryFn: apiClient.getAll,

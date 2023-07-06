@@ -22,6 +22,15 @@ class ApiService<T> {
       .get<FetchResponse<T>>(this.endpoint)
       .then(res => res.data);
   };
+
+  public getOne = async (
+    id: number | string,
+    params = '&media=podcast&entity=podcastEpisode&limit=20',
+  ) => {
+    return axiosInstance
+      .get<T>(this.endpoint + id + params)
+      .then(res => res.data);
+  };
 }
 
 export default ApiService;

@@ -9,7 +9,6 @@ interface Props {
 }
 
 const Card = ({ podcast }: Props) => {
-  console.log(podcast);
   return (
     <>
       <Styled.CardWrapper>

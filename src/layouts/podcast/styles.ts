@@ -3,7 +3,7 @@ import { styled } from 'styled-components';
 import { DropShadowBox } from '@/styles/mixins';
 
 export const Container = styled.div.attrs({
-  className: 'podcast-detail',
+  className: 'container-grid',
 })`
   display: grid;
   grid-template-columns: 1fr 2fr;
@@ -56,23 +56,4 @@ export const PodcastDescription = styled.p.attrs({
     font-weight: bold;
     margin-bottom: 0.5rem;
   }
-`;
-
-export const EpisodesWrapper = styled.div.attrs({
-  className: 'podcast-detail__episodes',
-})``;
-
-export const EpisodesList = styled.ul.attrs({
-  className: 'podcast-detail__episodes-list',
-})`
-  ${DropShadowBox}
-`;
-
-export const EpisodesCount = styled.div.attrs({
-  className: 'podcast-detail__episodes-count',
-})`
-  ${DropShadowBox}
-  padding: 0.5rem 0.8rem;
-  font-weight: bold;
-  margin-bottom: 1.5rem;
 `;

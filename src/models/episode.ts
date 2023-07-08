@@ -3,4 +3,5 @@ export interface Episode {
   trackName: string;
   releaseDate: string;
   trackTimeMillis: number;
+  previewUrl: string;
 }

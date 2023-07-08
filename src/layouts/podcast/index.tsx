@@ -15,13 +15,15 @@ interface Props {
 const PodcastLayout = ({ podcastId, children }: Props) => {
   const { data: podcasts } = usePodcasts();
 
-  const matchingPodcast = podcasts.find((podcast: Podcast) => {
+  const matchingPodcast = podcasts?.find((podcast: Podcast) => {
     const mappedPodcast = createPodcastAdapter(podcast);
 
-    return mappedPodcast.id === podcastId;
+    return mappedPodcast?.id === podcastId;
   });
 
-  const podcastInfo = createPodcastAdapter(matchingPodcast);
+  const podcastInfo = matchingPodcast
+    ? createPodcastAdapter(matchingPodcast)
+    : null;
 
   return (
     <>
@@ -29,12 +31,12 @@ const PodcastLayout = ({ podcastId, children }: Props) => {
         <Styled.PodcastInfo>
           <Link to={`/podcast/${podcastId}`}>
             <Styled.PodcastImage
-              src={podcastInfo.image}
+              src={podcastInfo?.image}
               alt={podcastInfo?.title}
             />
             <Styled.PodcastTitle>{podcastInfo?.title}</Styled.PodcastTitle>
           </Link>
-          <Styled.PodcastAuthor>By {podcastInfo.author}</Styled.PodcastAuthor>
+          <Styled.PodcastAuthor>By {podcastInfo?.author}</Styled.PodcastAuthor>
           <Styled.PodcastDescription>
             <span> Description:</span>
             <Linkify

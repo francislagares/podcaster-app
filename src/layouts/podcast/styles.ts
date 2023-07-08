@@ -56,6 +56,7 @@ export const PodcastDescription = styled.p.attrs({
   text-align: left;
   border-top: 1px solid ${grayColor};
   padding-top: 1rem;
+  word-wrap: break-word;
 
   span {
     color: ${blackColor};

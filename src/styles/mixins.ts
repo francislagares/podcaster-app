@@ -10,6 +10,5 @@ export const DropShadowBox = css`
 `;
 
 export const FitContent = css`
-  width: fit-content;
   block-size: fit-content;
 `;

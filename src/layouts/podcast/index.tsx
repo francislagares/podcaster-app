@@ -1,3 +1,4 @@
+import Linkify from 'react-linkify';
 import { Link } from 'react-router-dom';
 
 import { createPodcastAdapter } from '@/adapters/podcast.adapter';
@@ -36,7 +37,15 @@ const PodcastLayout = ({ podcastId, children }: Props) => {
           <Styled.PodcastAuthor>By {podcastInfo.author}</Styled.PodcastAuthor>
           <Styled.PodcastDescription>
             <span> Description:</span>
-            {podcastInfo?.description}
+            <Linkify
+              componentDecorator={(decoratedHref, decoratedText, key) => (
+                <a target='blank' href={decoratedHref} key={key}>
+                  {decoratedText}
+                </a>
+              )}
+            >
+              {podcastInfo?.description}
+            </Linkify>
           </Styled.PodcastDescription>
         </Styled.PodcastInfo>
         {children}

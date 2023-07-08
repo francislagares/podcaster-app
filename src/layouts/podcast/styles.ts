@@ -18,6 +18,7 @@ export const PodcastInfo = styled.div.attrs({
   ${DropShadowBox}
   text-align: center;
   padding: 1rem;
+  width: 15rem;
   ${FitContent}
 
   a {

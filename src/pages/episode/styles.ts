@@ -21,4 +21,5 @@ export const EpisodeDescription = styled.p.attrs({
   className: 'episode-section__description',
 })`
   font-size: 1rem;
+  white-space: pre-wrap;
 `;

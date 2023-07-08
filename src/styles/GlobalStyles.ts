@@ -1,5 +1,7 @@
 import { createGlobalStyle } from 'styled-components';
 
+import { whiteColor } from './variables';
+
 const GlobalStyles = createGlobalStyle`
 :root {
   color: rgb(255 255 255 / 87%);
@@ -29,7 +31,7 @@ a {
 @media (prefers-color-scheme: light) {
   :root {
     color: #213547;
-    background-color: #fff;
+    background-color: ${whiteColor};
   }
 }
 `;

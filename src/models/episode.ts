@@ -1,3 +1,6 @@
 export interface Episode {
-  artworkUrl600: string;
+  trackId: string;
+  trackName: string;
+  releaseDate: string;
+  trackTimeMillis: number;
 }

@@ -1,8 +1,9 @@
-import { Link, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 
 import usePodcast from '@/hooks/usePodcast';
 import PodcastLayout from '@/layouts/podcast';
 
+import Table from './components/table';
 import * as Styled from './styles';
 
 const PodcastDetail = () => {
@@ -22,22 +23,7 @@ const PodcastDetail = () => {
             Episodes: {podcast?.resultCount}
           </Styled.EpisodesCount>
           <Styled.EpisodesList>
-            {podcast?.results.map(episode => {
-              const episodeId = episode.trackId;
-
-              return (
-                <>
-                  <li key={episodeId}>
-                    <Link
-                      to={`/podcast/${podcastId}/episode/${episodeId}`}
-                      state={{ episode }}
-                    >
-                      {episode.trackName}
-                    </Link>
-                  </li>
-                </>
-              );
-            })}
+            <Table episodes={podcast?.results} podcastId={podcastId} />
           </Styled.EpisodesList>
         </Styled.EpisodesWrapper>
       </PodcastLayout>

@@ -1,5 +1,7 @@
 import { styled } from 'styled-components';
 
+import { blueColor, grayColor, whiteColor } from '@/styles/variables';
+
 export const SearchContainer = styled.form.attrs({
   className: 'search-form',
 })`
@@ -16,7 +18,7 @@ export const Search = styled.input.attrs({
 })`
   padding: 0.75rem 1.25rem;
   display: block;
-  border: 1px solid #f1f1f1;
+  border: 1px solid ${grayColor};
   border-radius: 5px;
   font-size: 0.8rem;
   letter-spacing: 0.1rem;
@@ -35,8 +37,8 @@ export const ResultsCount = styled.span.attrs({
   className: 'search-form__results-count',
 })`
   border-radius: 5px;
-  background-color: #747bff;
-  color: #fff;
+  background-color: ${blueColor};
+  color: ${whiteColor};
   font-size: 0.9rem;
   line-height: 1.5rem;
   margin-right: 0.5rem;

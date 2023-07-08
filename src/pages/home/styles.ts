@@ -1,5 +1,7 @@
 import { styled } from 'styled-components';
 
+import { blueColor, whiteColor } from '@/styles/variables';
+
 export const Container = styled.div.attrs({
   className: 'container',
 })`
@@ -13,8 +15,8 @@ export const ResultsCount = styled.span.attrs({
   className: 'results-count',
 })`
   border-radius: 5px;
-  background-color: #747bff;
+  background-color: ${blueColor};
   font-size: 0.9rem;
-  color: #fff;
+  color: ${whiteColor};
   padding: 1px 3px;
 `;

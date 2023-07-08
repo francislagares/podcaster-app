@@ -1,13 +1,16 @@
 import { styled } from 'styled-components';
 
+import { grayColor } from '@/styles/variables';
+
 export const CardWrapper = styled.div.attrs({
   className: 'card',
 })`
   width: 20%;
   padding: 1rem;
   margin-bottom: 7rem;
-  border: 1px solid #f1f1f1;
-  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px,
+  border: 1px solid ${grayColor};
+  box-shadow:
+    rgba(0, 0, 0, 0.1) 0px 4px 6px -1px,
     rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
   text-align: center;
 `;

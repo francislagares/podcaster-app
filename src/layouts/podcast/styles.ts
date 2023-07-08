@@ -1,6 +1,7 @@
 import { styled } from 'styled-components';
 
-import { DropShadowBox } from '@/styles/mixins';
+import { DropShadowBox, FitContent } from '@/styles/mixins';
+import { blackColor, grayColor } from '@/styles/variables';
 
 export const Container = styled.div.attrs({
   className: 'container-grid',
@@ -17,6 +18,11 @@ export const PodcastInfo = styled.div.attrs({
   ${DropShadowBox}
   text-align: center;
   padding: 1rem;
+  ${FitContent}
+
+  a {
+    color: ${blackColor};
+  }
 `;
 
 export const PodcastImage = styled.img.attrs({
@@ -27,7 +33,7 @@ export const PodcastTitle = styled.h1.attrs({
   className: 'podcast-detail__info-title',
 })`
   font-size: 0.9rem;
-  border-top: 1px solid #f1f1f1;
+  border-top: 1px solid ${grayColor};
   padding-top: 1rem;
   text-align: left;
 `;
@@ -47,10 +53,11 @@ export const PodcastDescription = styled.p.attrs({
 })`
   font-size: 0.9rem;
   text-align: left;
-  border-top: 1px solid #f1f1f1;
+  border-top: 1px solid ${grayColor};
   padding-top: 1rem;
 
   span {
+    color: ${blackColor};
     display: block;
     text-align: left;
     font-weight: bold;

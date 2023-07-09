@@ -82,7 +82,7 @@ By clicking on a podcast card, users are redirected to a detailed page of the se
 
 - Run the container and serve 
   ```bash
-  docker container run --name podcaster-app -p 8080:8080 podcaster-app
+  docker container run --name podcaster-app -p 8080:80 podcaster-app
   ```
 - Open [http://localhost:8080](http://localhost:8080) in your browser to see the
   result.

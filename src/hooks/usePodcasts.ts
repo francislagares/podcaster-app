@@ -6,7 +6,7 @@ import { Podcast } from '@/models/podcast';
 import ApiService from '@/services/api.service';
 
 const apiClient = new ApiService<Podcast>(
-  '/us/rss/toppodcasts/limit=100/genre=1310/json',
+  import.meta.env.VITE_ITUNES_PODCASTS_URL,
 );
 
 const filterPodcasts = (searchTerm?: string, data?: any) => {

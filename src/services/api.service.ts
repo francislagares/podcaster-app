@@ -25,7 +25,7 @@ class ApiService<T> {
 
   public getOne = async (
     id: number | string,
-    params = '&media=podcast&entity=podcastEpisode&limit=20',
+    params = import.meta.env.VITE_ITUNES_PARAMS_URL,
   ) => {
     return axiosInstance
       .get<T>(this.endpoint + id + params)

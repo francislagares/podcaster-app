@@ -7,11 +7,17 @@ services:
     tty: true
     build:
       context: .
+      target: development
       dockerfile: Dockerfile
     networks:
       - frontend
     ports:
       - "5173:5173"
+    environment:
+      - VITE_ITUNES_BASE_URL=https://cors-anywhere.herokuapp.com/https://itunes.apple.com
+      - VITE_ITUNES_PODCASTS_URL=/us/rss/toppodcasts/limit=100/genre=1310/json
+      - VITE_ITUNES_PODCAST_LOOKUP_URL=/lookup?id=
+      - VITE_ITUNES_PARAMS_URL=&media=podcast&entity=podcastEpisode&limit=20
     volumes:
       - "/app/node_modules"
       - "./:/app"

@@ -23,7 +23,7 @@ const Home = () => {
     }, LOADER_TIMEOUT);
   }, []);
 
-  if (isLoading) return null;
+  if (isLoading) return 'Wait while we are fetching content...';
 
   if (error) throw error;
 

@@ -20,7 +20,12 @@ class ApiService<T> {
   public getAll = async () => {
     return axiosInstance
       .get<FetchResponse<T>>(this.endpoint)
-      .then(res => res.data);
+      .then(res => res.data)
+      .catch(error =>
+        console.log(
+          `Something went wrong while fetching all podcasts: ${error}`,
+        ),
+      );
   };
 
   public getOne = async (
@@ -29,7 +34,12 @@ class ApiService<T> {
   ) => {
     return axiosInstance
       .get<T>(this.endpoint + id + params)
-      .then(res => res.data);
+      .then(res => res.data)
+      .catch(error =>
+        console.log(
+          `Something went wrong while fetching the podcast: ${error}`,
+        ),
+      );
   };
 }
 

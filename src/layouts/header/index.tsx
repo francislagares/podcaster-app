@@ -1,17 +1,18 @@
 import { Link, Outlet } from 'react-router-dom';
 
+import Loader from '@/components/loader';
+import { useLoadingContext } from '@/contexts/loading';
+
 import * as Styled from './styles';
 
-interface Props {
-  children: React.ReactNode;
-}
+const Header = () => {
+  const { isLoading } = useLoadingContext();
 
-const Header = ({ children }: Props) => {
   return (
     <>
       <Styled.Heading>
         <Link to='/'>Podcaster</Link>
-        {children}
+        {isLoading && <Loader />}
       </Styled.Heading>
       <Outlet />
     </>

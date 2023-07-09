@@ -5,6 +5,7 @@ import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 import ReactDOM from 'react-dom/client';
 import { RouterProvider } from 'react-router-dom';
 
+import { LoadingProvider } from './contexts/loading';
 import router from './routes';
 import GlobalStyles from './styles/GlobalStyles';
 
@@ -14,7 +15,9 @@ ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <React.StrictMode>
     <GlobalStyles />
     <QueryClientProvider client={queryClient}>
-      <RouterProvider router={router} />
+      <LoadingProvider>
+        <RouterProvider router={router} />
+      </LoadingProvider>
       <ReactQueryDevtools />
     </QueryClientProvider>
   </React.StrictMode>,

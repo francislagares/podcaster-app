@@ -1,8 +1,10 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 import { createPodcastAdapter } from '@/adapters/podcast.adapter';
 import Card from '@/components/card';
 import Search from '@/components/search';
+import { LOADER_TIMEOUT } from '@/constants/loader';
+import { useLoadingContext } from '@/contexts/loading';
 import usePodcasts from '@/hooks/usePodcasts';
 import { Podcast } from '@/models/podcast';
 
@@ -11,6 +13,15 @@ import * as Styled from './styles';
 const Home = () => {
   const [searchTerm, setSearchTerm] = useState('');
   const { data: podcasts, isLoading, error } = usePodcasts(searchTerm);
+  const { setLoading } = useLoadingContext();
+
+  useEffect(() => {
+    setLoading(true);
+
+    setTimeout(() => {
+      setLoading(false);
+    }, LOADER_TIMEOUT);
+  }, []);
 
   if (isLoading) return null;
 

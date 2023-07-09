@@ -1,16 +1,10 @@
 import * as Styled from './styles';
 
-interface Props {
-  isLoading: boolean;
-}
-
-const Loader = ({ isLoading }: Props) => {
+const Loader = () => {
   return (
-    isLoading && (
-      <Styled.DotLoaderContainer>
-        <Styled.Dot delay='200ms' />
-      </Styled.DotLoaderContainer>
-    )
+    <Styled.DotLoaderContainer>
+      <Styled.Dot delay='200ms' />
+    </Styled.DotLoaderContainer>
   );
 };
 

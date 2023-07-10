@@ -10,7 +10,7 @@ const apiClient = new ApiService<Podcast>(
 );
 
 const filterPodcasts = (searchTerm?: string, data?: any) => {
-  const podcasts = data.feed.entry;
+  const podcasts = JSON.parse(data.contents);
 
   if (!searchTerm) {
     return podcasts;

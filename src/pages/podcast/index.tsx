@@ -14,7 +14,7 @@ const PodcastDetail = () => {
   const { podcastId } = useParams();
   const { setLoading } = useLoadingContext();
 
-  const { data: podcast, isLoading, error } = usePodcast(podcastId || '');
+  const { data, isLoading, error } = usePodcast(podcastId || '');
 
   useEffect(() => {
     setLoading(true);
@@ -27,6 +27,12 @@ const PodcastDetail = () => {
   if (isLoading) return null;
 
   if (error) throw error;
+
+  const response = JSON.parse(data?.contents);
+  console.log(response);
+
+  const podcast = response;
+  console.log(podcast.results);
 
   return (
     <>

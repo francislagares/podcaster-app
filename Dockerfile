@@ -20,7 +20,7 @@ CMD ["yarn", "dev"]
 # Stage 2: Build production image
 FROM node:lts AS builder
 
-ENV VITE_ITUNES_BASE_URL=https://cors-anywhere.herokuapp.com/https://itunes.apple.com
+ENV VITE_ITUNES_BASE_URL=https://itunes.apple.com
 ENV VITE_ITUNES_PODCASTS_URL=/us/rss/toppodcasts/limit=100/genre=1310/json
 ENV VITE_ITUNES_PODCAST_LOOKUP_URL=/lookup?id=
 ENV VITE_ITUNES_PARAMS_URL=&media=podcast&entity=podcastEpisode&limit=20

@@ -14,7 +14,7 @@ services:
     ports:
       - "5173:5173"
     environment:
-      - VITE_ITUNES_BASE_URL=https://cors-anywhere.herokuapp.com/https://itunes.apple.com
+      - VITE_ITUNES_BASE_URL=https://itunes.apple.com
       - VITE_ITUNES_PODCASTS_URL=/us/rss/toppodcasts/limit=100/genre=1310/json
       - VITE_ITUNES_PODCAST_LOOKUP_URL=/lookup?id=
       - VITE_ITUNES_PARAMS_URL=&media=podcast&entity=podcastEpisode&limit=20

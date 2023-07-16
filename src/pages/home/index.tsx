@@ -12,7 +12,7 @@ import * as Styled from './styles';
 
 const Home = () => {
   const [searchTerm, setSearchTerm] = useState('');
-  const { data, isLoading, error } = usePodcasts(searchTerm);
+  const { data: podcasts, isLoading, error } = usePodcasts(searchTerm);
   const { setLoading } = useLoadingContext();
 
   useEffect(() => {
@@ -30,8 +30,6 @@ const Home = () => {
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSearchTerm(e.target.value);
   };
-
-  const podcasts = data?.feed?.entry;
 
   return (
     <Styled.Container>

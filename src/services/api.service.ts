@@ -1,4 +1,5 @@
 import axios from 'axios';
+import Parser from 'rss-parser';
 
 export interface FetchResponse<T> {
   feed: {
@@ -28,7 +29,7 @@ class ApiService<T> {
       );
   };
 
-  public getOne = async (
+  public getPodcast = async (
     id: number | string,
     params = import.meta.env.VITE_ITUNES_PARAMS_URL,
   ) => {
@@ -40,6 +41,19 @@ class ApiService<T> {
           `Something went wrong while fetching the podcast: ${error}`,
         ),
       );
+  };
+
+  public getEpisodes = async (feedUrl: string) => {
+    const parser = new Parser();
+    const feed = await parser
+      .parseURL(feedUrl)
+      .catch(error =>
+        console.log(
+          `Something went wrong while fetching the episodes: ${error}`,
+        ),
+      );
+
+    return feed;
   };
 }
 

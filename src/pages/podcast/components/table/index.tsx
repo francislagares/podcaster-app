@@ -2,7 +2,6 @@ import { Link } from 'react-router-dom';
 
 import { Episode } from '@/models/episode';
 import { formatDate } from '@/utils/dateFormatter';
-import { formatMilliseconds } from '@/utils/timeFormatter';
 
 import * as Styled from './styles';
 
@@ -12,6 +11,7 @@ interface Props {
 }
 
 const Table = ({ episodes, podcastId }: Props) => {
+  console.log(episodes);
   return (
     <Styled.Table>
       <thead>
@@ -23,22 +23,18 @@ const Table = ({ episodes, podcastId }: Props) => {
       </thead>
       <tbody>
         {episodes?.map((episode: Episode) => (
-          <tr key={episode.trackId}>
+          <tr key={episode.guid}>
             <Styled.TableData>
               <Link
-                to={`/podcast/${podcastId}/episode/${episode.trackId}`}
+                to={`/podcast/${podcastId}/episode/${episode.guid}`}
                 state={{ episode }}
               >
-                {episode.trackName}{' '}
+                {episode.title}{' '}
               </Link>
             </Styled.TableData>
 
-            <Styled.TableData>
-              {formatDate(episode.releaseDate)}
-            </Styled.TableData>
-            <Styled.TableData>
-              {formatMilliseconds(episode.trackTimeMillis)}
-            </Styled.TableData>
+            <Styled.TableData>{formatDate(episode.isoDate)}</Styled.TableData>
+            <Styled.TableData>{episode.itunes.duration}</Styled.TableData>
           </tr>
         ))}
       </tbody>

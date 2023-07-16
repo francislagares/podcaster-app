@@ -13,9 +13,7 @@ interface Props {
 }
 
 const PodcastLayout = ({ podcastId, children }: Props) => {
-  const { data } = usePodcasts();
-
-  const podcasts = data?.feed?.entry;
+  const { data: podcasts } = usePodcasts();
 
   const matchingPodcast = podcasts?.find((podcast: Podcast) => {
     const mappedPodcast = createPodcastAdapter(podcast);

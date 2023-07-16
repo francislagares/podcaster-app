@@ -1,7 +1,8 @@
 export interface Episode {
-  trackId: string;
-  trackName: string;
-  releaseDate: string;
+  guid: string;
+  title: string;
+  isoDate: string;
   trackTimeMillis: number;
   previewUrl: string;
+  description: string;
 }

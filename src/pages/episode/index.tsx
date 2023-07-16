@@ -1,6 +1,5 @@
 import { useEffect } from 'react';
 
-import Linkify from 'react-linkify';
 import { useLocation, useParams } from 'react-router-dom';
 
 import { LOADER_TIMEOUT } from '@/constants/loader';
@@ -29,18 +28,12 @@ const Episode = () => {
     <>
       <PodcastLayout podcastId={podcastId || ''}>
         <Styled.EpisodeSection>
-          <Styled.EpisodeTitle>{episode?.trackName}</Styled.EpisodeTitle>
-          <Styled.EpisodeDescription>
-            <Linkify
-              componentDecorator={(decoratedHref, decoratedText, key) => (
-                <a target='blank' href={decoratedHref} key={key}>
-                  {decoratedText}
-                </a>
-              )}
-            >
-              {episode?.description}
-            </Linkify>
-          </Styled.EpisodeDescription>
+          <Styled.EpisodeTitle>{episode?.title}</Styled.EpisodeTitle>
+          <Styled.EpisodeDescription
+            dangerouslySetInnerHTML={{
+              __html: location.state.episode.content,
+            }}
+          />
           <AudioPlayer src={episode?.previewUrl} />
         </Styled.EpisodeSection>
       </PodcastLayout>

@@ -14,7 +14,8 @@ const PodcastDetail = () => {
   const { podcastId } = useParams();
   const { setLoading } = useLoadingContext();
 
-  const { data, isLoading, error } = usePodcast(podcastId || '');
+  const { data: podcast, isLoading, error } = usePodcast(podcastId || '');
+  const episodes = podcast?.episodes?.items;
 
   useEffect(() => {
     setLoading(true);
@@ -28,21 +29,15 @@ const PodcastDetail = () => {
 
   if (error) throw error;
 
-  const response = JSON.parse(data?.contents);
-  console.log(response);
-
-  const podcast = response;
-  console.log(podcast.results);
-
   return (
     <>
       <PodcastLayout podcastId={podcastId || ''}>
         <Styled.EpisodesWrapper>
           <Styled.EpisodesCount>
-            Episodes: {podcast?.resultCount}
+            Episodes: {episodes?.length}
           </Styled.EpisodesCount>
           <Styled.EpisodesList>
-            <Table episodes={podcast?.results} podcastId={podcastId} />
+            <Table episodes={episodes} podcastId={podcastId} />
           </Styled.EpisodesList>
         </Styled.EpisodesWrapper>
       </PodcastLayout>

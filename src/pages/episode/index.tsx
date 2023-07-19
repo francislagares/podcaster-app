@@ -1,5 +1,6 @@
 import { useEffect } from 'react';
 
+import DOMPurify from 'dompurify';
 import { useLocation, useParams } from 'react-router-dom';
 
 import { LOADER_TIMEOUT } from '@/constants/loader';
@@ -31,10 +32,10 @@ const Episode = () => {
           <Styled.EpisodeTitle>{episode?.title}</Styled.EpisodeTitle>
           <Styled.EpisodeDescription
             dangerouslySetInnerHTML={{
-              __html: location.state.episode.content,
+              __html: DOMPurify.sanitize(location.state.episode.content),
             }}
           />
-          <AudioPlayer src={episode?.previewUrl} />
+          <AudioPlayer src={episode?.enclosure.url} />
         </Styled.EpisodeSection>
       </PodcastLayout>
     </>

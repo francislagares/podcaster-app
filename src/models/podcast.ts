@@ -11,4 +11,5 @@ export interface Podcast {
 export interface PodcastDetail {
   resultCount: number;
   contents: Episode[];
+  results: any;
 }

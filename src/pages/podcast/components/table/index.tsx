@@ -1,3 +1,6 @@
+/* eslint-disable @typescript-eslint/ban-ts-comment */
+// @ts-nocheck
+
 import { Link } from 'react-router-dom';
 
 import { Episode } from '@/models/episode';

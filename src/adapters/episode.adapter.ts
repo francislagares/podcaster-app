@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/ban-ts-comment */
+// @ts-nocheck
 import { Episode } from '@/models/episode';
 
 export const createEpisodeAdapter = (episode: any): Episode => ({

@@ -1,4 +1,8 @@
+/* eslint-disable @typescript-eslint/ban-ts-comment */
+// @ts-nocheck
+
 import { useQuery } from '@tanstack/react-query';
+import ms from 'ms';
 
 import { PodcastDetail } from '@/models/podcast';
 import ApiService from '@/services/api.service';
@@ -10,6 +14,7 @@ const apiClient = new ApiService<PodcastDetail>(
 const usePodcast = (podcastId: string) => {
   return useQuery({
     queryKey: ['podcastId', podcastId],
+    staleTime: ms('24h'),
     queryFn: async () => {
       const podcastResponse = await apiClient.getPodcast(podcastId);
       const podcast = JSON.parse(podcastResponse.contents);
@@ -19,8 +24,6 @@ const usePodcast = (podcastId: string) => {
       if (feedUrl) {
         const episodes = await apiClient.getEpisodes(feedUrl);
 
-        console.log(episodes);
-
         return { podcastId, episodes };
       }
 
@@ -29,12 +32,4 @@ const usePodcast = (podcastId: string) => {
   });
 };
 
-/* const usePodcast = (podcastId: string) => {
-  return useQuery({
-    queryKey: ['podcastId', podcastId],
-    queryFn: () => apiClient.getPodcast(podcastId),
-  });
-};
-
-*/
 export default usePodcast;

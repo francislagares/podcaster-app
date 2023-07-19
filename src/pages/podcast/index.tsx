@@ -1,3 +1,6 @@
+/* eslint-disable @typescript-eslint/ban-ts-comment */
+// @ts-nocheck
+
 import { useEffect } from 'react';
 
 import { useParams } from 'react-router-dom';

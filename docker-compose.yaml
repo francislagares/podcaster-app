@@ -2,25 +2,22 @@ version: "3.9"
 services:
   frontend:
     container_name: podcaster-app
-    image: podcaster-app
+    image: podcaster-proxy/v1.0.0
     stdin_open: true
     tty: true
     build:
       context: .
-      target: development
       dockerfile: Dockerfile
     networks:
       - frontend
     ports:
-      - "5173:5173"
+      - "8080:80"
     environment:
-      - VITE_ITUNES_BASE_URL=https://itunes.apple.com
+      - VITE_ITUNES_BASE_URL=https://api.allorigins.win/get?url=https://itunes.apple.com
       - VITE_ITUNES_PODCASTS_URL=/us/rss/toppodcasts/limit=100/genre=1310/json
       - VITE_ITUNES_PODCAST_LOOKUP_URL=/lookup?id=
       - VITE_ITUNES_PARAMS_URL=&media=podcast&entity=podcastEpisode&limit=20
-    volumes:
-      - "/app/node_modules"
-      - "./:/app"
+
 networks:
   frontend:
     name: podcaster-app

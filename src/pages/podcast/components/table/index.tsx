@@ -14,7 +14,6 @@ interface Props {
 }
 
 const Table = ({ episodes, podcastId }: Props) => {
-  console.log(episodes);
   return (
     <Styled.Table>
       <thead>

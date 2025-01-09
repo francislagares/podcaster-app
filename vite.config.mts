@@ -3,11 +3,11 @@ import path from 'path';
 
 import react from '@vitejs/plugin-react';
 import svgrPlugin from 'vite-plugin-svgr';
-import viteTsconfigPaths from 'vite-tsconfig-paths';
+import tsconfigPaths from 'vite-tsconfig-paths';
 import { coverageConfigDefaults, defineConfig } from 'vitest/config';
 
 export default defineConfig({
-  plugins: [react(), viteTsconfigPaths(), svgrPlugin()],
+  plugins: [react(), tsconfigPaths(), svgrPlugin()],
   server: {
     watch: {
       usePolling: true,
@@ -18,8 +18,9 @@ export default defineConfig({
   },
   test: {
     globals: true,
-    environment: 'jsdom',
-    setupFiles: './src/setupTests.ts',
+    environment: 'happy-dom',
+    setupFiles: ['./src/tests/test-environment.ts'],
+    include: ['./src/**/*.{spec,test}.{ts,tsx}'],
     coverage: {
       enabled: true,
       provider: 'v8',
@@ -37,7 +38,7 @@ export default defineConfig({
   },
   resolve: {
     alias: {
-      '@/src': path.resolve(__dirname, './src'),
+      '@/src/*': path.resolve(__dirname, './src'),
     },
   },
 });

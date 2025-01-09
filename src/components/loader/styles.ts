@@ -18,6 +18,7 @@ const pulseAnimation = keyframes`
 `;
 
 export const DotLoaderContainer = styled.div.attrs({
+  role: 'status',
   className: 'loader-container',
 })``;
 

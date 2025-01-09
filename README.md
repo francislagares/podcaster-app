@@ -1,7 +1,7 @@
 # Podcaster-App
 
 
-The "Podcaster App" is a web application developed in React that allows users to browse and listen to a wide variety of podcasts available on the iTunes API. The app uses the React Router v6 to manage navigation between different pages and components.
+The "Podcaster App" is a web application developed in React that allows users to browse and listen to a wide variety of podcasts available on the iTunes API. The app uses the React Router v7 to manage navigation between different pages and components.
 
 Upon entering the app, users are greeted with a home page where they can search for podcasts by title or author. Search results are displayed in the form of cards, each representing a different podcast. These cards contain information such as the title, author, and a representative image of the podcast.
 
@@ -34,11 +34,11 @@ By clicking on a podcast card, users are redirected to a detailed page of the se
 	</a>
 </p>
 
-![Image](https://res.cloudinary.com/chatty-app/image/upload/v1688925678/Screenshot_from_2023-07-09_19-57-15_rdg3mc.png)
+![Image](https://res.cloudinary.com/jobber-app/image/upload/v1688925678/Screenshot_from_2023-07-09_19-57-15_rdg3mc.png)
 
-![Image](https://res.cloudinary.com/chatty-app/image/upload/v1688925728/Screenshot_from_2023-07-09_19-57-48_bopo3q.png)
+![Image](https://res.cloudinary.com/jobber-app/image/upload/v1688925728/Screenshot_from_2023-07-09_19-57-48_bopo3q.png)
 
-![Image](https://res.cloudinary.com/chatty-app/image/upload/v1688925707/Screenshot_from_2023-07-09_19-59-24_x33j57.png)
+![Image](https://res.cloudinary.com/jobber-app/image/upload/v1688925707/Screenshot_from_2023-07-09_19-59-24_x33j57.png)
 
 
 

@@ -33,14 +33,12 @@
     "allowSyntheticDefaultImports": true,
     "forceConsistentCasingInFileNames": true,
     "baseUrl": ".",
-      "paths": {
-          "@/*": [
-              "src/*"
-          ]
-      }
+    "paths": {
+      "@/*": ["src/*"]
+    }
   },
-  "include": ["src"],
-  "exclude": ["./cypress.config.ts"],
   "types": ["vitest/globals"],
+  "include": ["**/*.ts", "**/*.tsx", "**/.storybook/*"],
+  "exclude": ["node_modules", "**/node_modules", "**/dist/*"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }

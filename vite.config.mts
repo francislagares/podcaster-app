@@ -4,7 +4,7 @@ import path from 'path';
 import react from '@vitejs/plugin-react';
 import svgrPlugin from 'vite-plugin-svgr';
 import viteTsconfigPaths from 'vite-tsconfig-paths';
-import { defineConfig } from 'vitest/config';
+import { coverageConfigDefaults, defineConfig } from 'vitest/config';
 
 export default defineConfig({
   plugins: [react(), viteTsconfigPaths(), svgrPlugin()],
@@ -21,9 +21,18 @@ export default defineConfig({
     environment: 'jsdom',
     setupFiles: './src/setupTests.ts',
     coverage: {
-      provider: 'c8',
+      enabled: true,
+      provider: 'v8',
       reporter: ['text', 'html'],
-      exclude: ['node_modules/', 'src/setupTests.ts'],
+      exclude: [
+        '.next/',
+        '.storybook/',
+        'public/',
+        'prisma/',
+        '**/stories/*.{js,ts,mjs,mts,tsx}',
+        '**/*.{config,stories}.{js,ts,mjs,mts,tsx}',
+        ...coverageConfigDefaults.exclude,
+      ],
     },
   },
   resolve: {
